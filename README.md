@@ -1,5 +1,7 @@
 # typescript-resolve-plugin
 
+[![NPM Version][npm-image]][npm-url]
+
 Use custom module resolvers with TypeScript language server.
 
 ## Configuration
@@ -30,3 +32,10 @@ module.exports = function createResolver({ options, cwd }) {
   }
 }
 ```
+
+## License
+
+MIT
+
+[npm-image]: https://img.shields.io/npm/v/typescript-resolve-plugin.svg
+[npm-url]: https://www.npmjs.com/package/typescript-resolve-plugin
