@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "out",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "lib": ["es6"],
+    "strict": true,
+    "baseUrl": "./src"
+  },
+  "include": ["./src/**/*.ts"]
+}
