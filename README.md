@@ -28,7 +28,7 @@ module.exports = function createResolver({ options, cwd }) {
     resolve(moduleName, containingFile) {
       const resolved = moduleName // rewrite moduleName
       return resolved
-    }
+    },
   }
 }
 ```

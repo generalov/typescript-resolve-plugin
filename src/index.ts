@@ -27,6 +27,6 @@ export = function init({ typescript }: { typescript: typeof ts_module }) {
 
     onConfigurationChanged(config: any) {
       configManager.updateFromPluginConfig(config)
-    }
+    },
   }
 }

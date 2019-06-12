@@ -30,7 +30,7 @@ export class ConfigurationManager {
 
     this._configuration = {
       ...config,
-      ...{ resolver, cwd }
+      ...{ resolver, cwd },
     }
 
     this.logger.info({ message: 'Configuration updated', config: this.config })

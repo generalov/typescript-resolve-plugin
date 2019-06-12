@@ -10,7 +10,7 @@ export class ResolvePlugin {
     private readonly ts: typeof ts_module,
     private readonly logger: Logger,
     private readonly project: ts_module.server.Project,
-    private readonly resolver: Resolver
+    private readonly resolver: Resolver,
   ) {
     this.logger.info('loaded')
   }
