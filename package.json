@@ -12,17 +12,19 @@
     "lib/**/*.ts"
   ],
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.1",
     "prettier": "^1.18.2",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.2"
   },
   "dependencies": {
-    "@types/node": "^12.0.7"
+    "@types/node": "^12.0.10"
   },
   "scripts": {
-    "build": "tsc -p .",
-    "lint": "prettier --write **/*.{ts,md,yml,json}",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "prettier **/*.{ts,md,yml,json}",
+    "fix": "prettier --write **/*.{ts,md,yml,json}",
     "postversion": "git push && git push --tags",
-    "prepublishOnly": "yarn lint && yarn build"
+    "prepublishOnly": "yarn lint && yarn compile"
   }
 }

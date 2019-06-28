@@ -24,6 +24,9 @@ export class ConfigurationManager {
   }
 
   public updateFromPluginConfig(config: Configuration) {
+    if (!config.resolver) {
+      return
+    }
     const cwd = config.cwd || this._workingDirectory
     const resolver =
       config.resolver && !path.isAbsolute(config.resolver) && cwd ? path.join(cwd, config.resolver) : config.resolver

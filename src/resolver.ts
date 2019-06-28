@@ -1,25 +1,36 @@
 import { Logger } from './logger'
 
-export type Resolver = {
+export interface Resolver {
   resolve(moduleName: string, containingFile: string): string
 }
 
+const idResolver: Resolver = {
+  resolve(moduleName) {
+    return moduleName
+  },
+}
+
 export class ResolverManager {
-  private resolver?: Resolver
+  private static readonly defaultResolver = idResolver
+  private resolver: Resolver = ResolverManager.defaultResolver
 
-  constructor(private readonly logger: Logger) {}
-
-  resolve(moduleName: string, containingFile: string) {
-    return this.resolver ? this.resolver.resolve(moduleName, containingFile) : moduleName
+  constructor(private readonly logger: Logger, config?: object) {
+    if (config) {
+      this.configure(config)
+    }
   }
 
-  reloadResolver(config: any) {
+  resolve(moduleName: string, containingFile: string) {
+    return this.resolver.resolve(moduleName, containingFile)
+  }
+
+  configure(config: any) {
     this.logger.info({ message: 'reload resolver', config })
-    this.resolver = undefined
     try {
       const createResolver = require(config.resolver)
       this.resolver = createResolver(config)
     } catch (error) {
+      this.resolver = ResolverManager.defaultResolver
       this.logger.info({ message: 'reloadResolver failed', error, config })
     }
   }
